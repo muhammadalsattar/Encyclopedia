@@ -1,0 +1,60 @@
+{% extends "encyclopedia/layout.html" %}
+{% block title %}
+Create Entry
+{% endblock %}
+{% block style %}
+<style>
+    h1 {
+        font-family: 'Roboto', sans-serif;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        font-family: 'Cairo', sans-serif;
+        font-weight: 400;
+        }
+    input {
+        width: 200px;
+        margin-bottom: 20px;
+        border: 1px solid black;
+        border-radius: none;
+        background-color: none;
+    }
+    textarea {
+        height: 280px;
+        margin-bottom: 20px;
+        border: 1px solid black;
+        border-radius: none;
+        background-color: none;
+        padding: 5px;
+    }
+    button {
+        font-family: 'Cairo', sans-serif;
+        width: 75px;
+    }
+    .alert {
+        width: 400px;
+        font-family: 'Cairo', sans-serif;
+    }
+</style>
+{% endblock %}
+{% block body %}
+
+    <h1>Create Entry</h1>
+    <form method="POST" action="{% url 'new_entry' %}">
+        {% if error %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{ error }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endif %}
+        {% csrf_token %}
+        {{ create }}
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+
+{% endblock %}

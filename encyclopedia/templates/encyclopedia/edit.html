@@ -1,0 +1,39 @@
+{% extends "encyclopedia/layout.html" %}
+{% block title %} Edit {% endblock %}
+{% block style %}
+<style>
+    h1 {
+        font-family: 'Roboto', sans-serif;
+        margin-bottom: 30px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        font-family: 'Cairo', sans-serif;
+        font-weight: 400;
+    }
+    textarea {
+        height: 400px;
+        margin-bottom: 20px;
+        border: 1px solid black;
+        border-radius: none;
+        background-color: none;
+        padding: 5px;
+    }
+    button {
+        width: 75px;
+        font-family: 'Cairo', sans-serif;
+    }
+</style>
+{% endblock %}
+{% block body %}
+<h1>Edit Entry</h1>
+<form method="POST" action="{% url 'edit_entry' %}">
+    {% csrf_token %}
+    <label for="textare">Content:</label>
+    <textarea name="content" >{{ entry }}</textarea>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

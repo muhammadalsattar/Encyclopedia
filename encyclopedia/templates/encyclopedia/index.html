@@ -1,0 +1,40 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+{% block style %}
+<style>
+    input{
+        background-color: None;
+        border-radius: 0%;
+        border: 1px solid black;
+        padding-left: 5px;
+    }
+    input::placeholder{
+        font-family: 'Cairo', sans-serif;
+    }
+    input::selection{
+        background-color: none;
+        border-radius: 0%;
+        border: 1px solid black;
+    }
+</style>
+{% endblock %}
+{% block form %}
+<form method="POST" action="{% url 'index' %}">
+    {% csrf_token %}
+    {{ form }}
+</form>
+{% endblock %}
+
+{% block body %}
+    <h1>All Pages</h1>
+
+    <ul>
+        {% for entry in entries %}
+            <li><a href="{% url 'singleentry' entry %}">{{entry}}</a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

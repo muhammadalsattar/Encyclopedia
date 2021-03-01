@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    background-color: white;
+    overflow-x: hidden;
+}
+
+code {
+    white-space: pre;
+}
+
+h1 {
+    margin-top: 0px;
+    padding-top: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+textarea {
+    height: 90vh;
+    width: 80%;
+}
+
+.main {
+    padding: 10px;
+}
+
+.search {
+    width: 100%;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+.sidebar {
+    background-color: #f0f0f0;
+    height: 100vh;
+    padding: 20px;
+    padding-left: 40px;
+}
+
+.sidebar h2 {
+    margin-top: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+a {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 400;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+li {
+    list-style-type: circle;
+}

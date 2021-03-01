@@ -1,0 +1,31 @@
+{% extends "encyclopedia/layout.html" %}
+{% block title %}
+Results
+{% endblock %}
+{% block style %}
+<style>
+h1 {
+    font-family: 'Roboto', sans-serif;
+}
+a {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 400;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+li {
+    list-style-type: circle;
+}
+</style>
+{% endblock %}
+{% block body %}
+    <h1>Results Found</h1>
+    <ul>
+        {% for result in results %}
+            <a href="{% url 'singleentry' result %}"><li>{{ result }}</li></a>
+        {% endfor %}
+    </ul>
+{% endblock %}
